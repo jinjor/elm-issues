@@ -1,7 +1,6 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
-import Html.App exposing (..)
 import Dom
 import Task
 
@@ -25,7 +24,7 @@ view model =
 update msg model =
   case msg of
     "click" ->
-      model ! [ Task.perform (\_ -> "") (\_ -> "") (Dom.focus "input") ]
+      model ! [ Task.attempt (\_ -> "") (Dom.focus "input") ]
 
     _ ->
       model ! []
