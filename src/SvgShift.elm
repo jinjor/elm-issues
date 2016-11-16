@@ -2,7 +2,6 @@ module SvgShift exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.App exposing (..)
 import Svg exposing (Svg)
 import Color exposing (..)
 import FontAwesome exposing (..)
