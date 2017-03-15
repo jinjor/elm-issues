@@ -1,7 +1,7 @@
-elm-make src/HtmlLazy.elm --output=docs/html-lazy.html
-elm-make src/FocusInput.elm --output=docs/focus-input.html
-elm-make src/SvgShift.elm --output=docs/svg-shift.html
-elm-make src/ResetInput.elm --output=docs/reset-input.js
+elm-make src/HtmlLazy.elm --debug --output=docs/html-lazy.html
+elm-make src/FocusInput.elm --debug --output=docs/focus-input.html
+elm-make src/SvgShift.elm --debug --output=docs/svg-shift.html
+elm-make src/ResetInput.elm --debug --output=docs/reset-input.js
 
 # compile error
 # elm-make src/PatternMatchErr.elm --output=/dev/null
