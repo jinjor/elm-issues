@@ -12301,251 +12301,136 @@ var _elm_lang$html$Html_Attributes$classList = function (list) {
 };
 var _elm_lang$html$Html_Attributes$style = _elm_lang$virtual_dom$VirtualDom$style;
 
-var _elm_lang$html$Html_Events$keyCode = A2(_elm_lang$core$Json_Decode$field, 'keyCode', _elm_lang$core$Json_Decode$int);
-var _elm_lang$html$Html_Events$targetChecked = A2(
-	_elm_lang$core$Json_Decode$at,
-	{
-		ctor: '::',
-		_0: 'target',
-		_1: {
-			ctor: '::',
-			_0: 'checked',
-			_1: {ctor: '[]'}
-		}
-	},
-	_elm_lang$core$Json_Decode$bool);
-var _elm_lang$html$Html_Events$targetValue = A2(
-	_elm_lang$core$Json_Decode$at,
-	{
-		ctor: '::',
-		_0: 'target',
-		_1: {
-			ctor: '::',
-			_0: 'value',
-			_1: {ctor: '[]'}
-		}
-	},
-	_elm_lang$core$Json_Decode$string);
-var _elm_lang$html$Html_Events$defaultOptions = _elm_lang$virtual_dom$VirtualDom$defaultOptions;
-var _elm_lang$html$Html_Events$onWithOptions = _elm_lang$virtual_dom$VirtualDom$onWithOptions;
-var _elm_lang$html$Html_Events$on = _elm_lang$virtual_dom$VirtualDom$on;
-var _elm_lang$html$Html_Events$onFocus = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'focus',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onBlur = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'blur',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onSubmitOptions = _elm_lang$core$Native_Utils.update(
-	_elm_lang$html$Html_Events$defaultOptions,
-	{preventDefault: true});
-var _elm_lang$html$Html_Events$onSubmit = function (msg) {
-	return A3(
-		_elm_lang$html$Html_Events$onWithOptions,
-		'submit',
-		_elm_lang$html$Html_Events$onSubmitOptions,
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onCheck = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'change',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetChecked));
-};
-var _elm_lang$html$Html_Events$onInput = function (tagger) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'input',
-		A2(_elm_lang$core$Json_Decode$map, tagger, _elm_lang$html$Html_Events$targetValue));
-};
-var _elm_lang$html$Html_Events$onMouseOut = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseout',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseOver = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseover',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseLeave = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseleave',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseEnter = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseenter',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseUp = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mouseup',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onMouseDown = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'mousedown',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onDoubleClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'dblclick',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$onClick = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Events$on,
-		'click',
-		_elm_lang$core$Json_Decode$succeed(msg));
-};
-var _elm_lang$html$Html_Events$Options = F2(
-	function (a, b) {
-		return {stopPropagation: a, preventDefault: b};
-	});
-
-var _user$project$ResetInput$onEnter = function (msg) {
-	return A2(
-		_elm_lang$html$Html_Attributes$map,
-		_elm_lang$core$Basics$always(msg),
-		A2(
-			_elm_lang$html$Html_Events$on,
-			'keydown',
-			A2(
-				_elm_lang$core$Json_Decode$andThen,
-				function (i) {
-					return _elm_lang$core$Native_Utils.eq(i, 13) ? _elm_lang$core$Json_Decode$succeed(
-						{ctor: '_Tuple0'}) : _elm_lang$core$Json_Decode$fail('');
-				},
-				_elm_lang$html$Html_Events$keyCode)));
-};
-var _user$project$ResetInput$elementId = 'input';
-var _user$project$ResetInput$setValue = _elm_lang$core$Native_Platform.outgoingPort(
-	'setValue',
-	function (v) {
-		return [v._0, v._1];
-	});
-var _user$project$ResetInput$update = F2(
-	function (msg, model) {
-		var _p0 = msg;
-		var _p1 = _p0._1;
-		return A2(
-			_elm_lang$core$Platform_Cmd_ops['!'],
-			_p1,
-			{
-				ctor: '::',
-				_0: _user$project$ResetInput$setValue(
-					{ctor: '_Tuple2', _0: _p0._0, _1: _p1}),
-				_1: {ctor: '[]'}
-			});
-	});
-var _user$project$ResetInput$SetValue = F2(
-	function (a, b) {
-		return {ctor: 'SetValue', _0: a, _1: b};
-	});
-var _user$project$ResetInput$view = function (model) {
-	return A2(
+var _user$project$Download$main = _elm_lang$virtual_dom$Native_VirtualDom.staticProgram(
+	A2(
 		_elm_lang$html$Html$div,
 		{ctor: '[]'},
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$input,
+				_elm_lang$html$Html$a,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$id(_user$project$ResetInput$elementId),
+					_0: _elm_lang$html$Html_Attributes$href('image.png'),
 					_1: {
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$defaultValue('initial'),
-						_1: {
-							ctor: '::',
-							_0: _user$project$ResetInput$onEnter(
-								A2(_user$project$ResetInput$SetValue, _user$project$ResetInput$elementId, 'done')),
-							_1: {ctor: '[]'}
-						}
+						_0: _elm_lang$html$Html_Attributes$download(true),
+						_1: {ctor: '[]'}
 					}
 				},
-				{ctor: '[]'}),
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text('download True'),
+					_1: {ctor: '[]'}
+				}),
 			_1: {
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$button,
+					_elm_lang$html$Html$a,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(
-							A2(_user$project$ResetInput$SetValue, _user$project$ResetInput$elementId, '')),
-						_1: {ctor: '[]'}
+						_0: _elm_lang$html$Html_Attributes$href('image.png'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$download(false),
+							_1: {ctor: '[]'}
+						}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('Reset'),
+						_0: _elm_lang$html$Html$text('download False'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$button,
+						_elm_lang$html$Html$a,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Events$onClick(
-								A2(_user$project$ResetInput$SetValue, _user$project$ResetInput$elementId, 'Hey!')),
-							_1: {ctor: '[]'}
+							_0: _elm_lang$html$Html_Attributes$href('image.png'),
+							_1: {
+								ctor: '::',
+								_0: A2(_elm_lang$html$Html_Attributes$attribute, 'download', ''),
+								_1: {ctor: '[]'}
+							}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('1'),
+							_0: _elm_lang$html$Html$text('attribute \"download\" \"\" '),
 							_1: {ctor: '[]'}
 						}),
 					_1: {
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$button,
+							_elm_lang$html$Html$a,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Events$onClick(
-									A2(_user$project$ResetInput$SetValue, _user$project$ResetInput$elementId, 'Yo!')),
-								_1: {ctor: '[]'}
+								_0: _elm_lang$html$Html_Attributes$href('image.png'),
+								_1: {
+									ctor: '::',
+									_0: A2(_elm_lang$html$Html_Attributes$attribute, 'download', 'foo.png'),
+									_1: {ctor: '[]'}
+								}
 							},
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html$text('2'),
+								_0: _elm_lang$html$Html$text('attribute \"download\" \"foo.png\" '),
 								_1: {ctor: '[]'}
 							}),
-						_1: {ctor: '[]'}
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$a,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$href('image.png'),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html_Attributes$property,
+											'download',
+											_elm_lang$core$Json_Encode$string('')),
+										_1: {ctor: '[]'}
+									}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('property \"download\" (Json.Encode.string \"\")'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$href('image.png'),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html_Attributes$property,
+												'download',
+												_elm_lang$core$Json_Encode$string('foo.png')),
+											_1: {ctor: '[]'}
+										}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('property \"download\" (Json.Encode.string \"foo.png\")'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
+						}
 					}
 				}
 			}
-		});
-};
-var _user$project$ResetInput$main = _elm_lang$html$Html$program(
-	{
-		init: A2(
-			_elm_lang$core$Platform_Cmd_ops['!'],
-			'',
-			{ctor: '[]'}),
-		view: _user$project$ResetInput$view,
-		update: _user$project$ResetInput$update,
-		subscriptions: function (_p2) {
-			return _elm_lang$core$Platform_Sub$none;
-		}
-	})();
+		}));
 
 var Elm = {};
-Elm['ResetInput'] = Elm['ResetInput'] || {};
-if (typeof _user$project$ResetInput$main !== 'undefined') {
-    _user$project$ResetInput$main(Elm['ResetInput'], 'ResetInput', {"types":{"message":"ResetInput.Msg","aliases":{},"unions":{"ResetInput.Msg":{"tags":{"SetValue":["String","String"]},"args":[]}}},"versions":{"elm":"0.18.0"}});
+Elm['Download'] = Elm['Download'] || {};
+if (typeof _user$project$Download$main !== 'undefined') {
+    _user$project$Download$main(Elm['Download'], 'Download', {"types":{"message":"msg","aliases":{},"unions":{}},"versions":{"elm":"0.18.0"}});
 }
 
 if (typeof define === "function" && define['amd'])
